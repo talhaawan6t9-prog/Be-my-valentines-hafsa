@@ -1,262 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hafsa 🖤</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hafsa ❤️ Talha</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a, #550022);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    cursor: default;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-      color: #eee;
-    }
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    animation: heartbeat 1s infinite;
+  }
 
-    .card {
-      background: rgba(10,10,10,0.9);
-      border: 1px solid rgba(255,0,80,0.2);
-      padding: 45px;
-      border-radius: 22px;
-      text-align: center;
-      max-width: 420px;
-      box-shadow: 0 0 40px rgba(255,0,80,0.15);
-      position: relative;
-      z-index: 10;
-    }
+  #proposal {
+    text-align: center;
+  }
 
-    h1 {
-      color: #ff2f6d;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
+  .btn {
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-    p {
-      color: #ccc;
-      font-size: 1.05em;
-      line-height: 1.6;
-      margin: 22px 0;
-    }
+  #yes {
+    background-color: #ff0055;
+    color: #fff;
+  }
 
-    .buttons {
-      margin-top: 35px;
-      position: relative;
-      height: 60px;
-    }
+  #no {
+    background-color: #555;
+    color: #fff;
+    position: absolute;
+  }
 
-    button {
-      padding: 12px 30px;
-      font-size: 1em;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s ease;
-      position: absolute;
-    }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
 
-    #yes {
-      background: linear-gradient(135deg, #ff2f6d, #b3003c);
-      color: white;
-      left: 50%;
-      transform: translateX(-120%);
-      box-shadow: 0 0 15px rgba(255,47,109,0.6);
-    }
+  /* Hearts effect */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: floatUp 5s linear infinite;
+  }
 
-    #yes:hover {
-      transform: translateX(-120%) scale(1.1);
-    }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
 
-    #no {
-      background: #111;
-      color: #888;
-      border: 1px solid #333;
-      left: 50%;
-      transform: translateX(20%);
-    }
+  .heart::before { top: -10px; left: 0; }
+  .heart::after { left: 10px; top: 0; }
 
-    .glow {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      background: rgba(255,47,109,0.08);
-      border-radius: 50%;
-      filter: blur(80px);
-      animation: float 8s infinite alternate ease-in-out;
-    }
-
-    @keyframes float {
-      from { transform: translate(-50px, -50px); }
-      to { transform: translate(50px, 50px); }
-    }
-
-    .music-btn {
-      margin-top: 20px;
-      background: transparent;
-      color: #ff2f6d;
-      border: 1px solid #ff2f6d;
-      padding: 8px 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      position: relative;
-      z-index: 11;
-    }
-
-    /* Heart animations */
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: #ff2f6d;
-      transform: rotate(45deg);
-      animation: floatHeart linear infinite;
-      z-index: 5;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #ff2f6d;
-      border-radius: 50%;
-    }
-
-    .heart::before { top: -10px; left: 0; }
-    .heart::after { left: 10px; top: 0; }
-
-    @keyframes floatHeart {
-      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-      100% { transform: translateY(-600px) rotate(45deg); opacity: 0; }
-    }
-
-    /* Confetti */
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background-color: #ff2f6d;
-      top: 0;
-      opacity: 0.7;
-      z-index: 12;
-      pointer-events: none;
-    }
-
-  </style>
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(-45deg); opacity: 0; }
+  }
+</style>
 </head>
 <body>
 
-  <div class="glow"></div>
+<div id="proposal">
+  <h1>Hafsa ❤️ Talha</h1>
+  <p>Hafsa… I have something to ask you…</p>
+  <button class="btn" id="yes">Yes 💖</button>
+  <button class="btn" id="no">No 😈</button>
+</div>
 
-  <div class="card" id="card">
-    <h1>Hafsa 🖤</h1>
+<audio id="bgMusic" loop>
+  <!-- Replace 'let_it_happen.mp3' with your audio file path -->
+  <source src="let_it_happen.mp3" type="audio/mpeg">
+</audio>
 
-    <p>
-      There's something about you --<br>
-      the kind of chaos that feels like home.<br><br>
-      Dark, beautiful, inevitable.
-    </p>
+<script>
+  const yesBtn = document.getElementById('yes');
+  const noBtn = document.getElementById('no');
+  const proposal = document.getElementById('proposal');
+  const body = document.body;
+  const music = document.getElementById('bgMusic');
 
-    <p>
-      Valentine's Day is coming…<br>
-      and I don't want it to happen<br>
-      without you.
-    </p>
+  // Start the music automatically
+  music.play();
 
-    <h1>Will you be my Valentine?</h1>
+  // Heart generator
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+    body.appendChild(heart);
+    setTimeout(() => body.removeChild(heart), 5000);
+  }
+  setInterval(createHeart, 300);
 
-    <div class="buttons">
-      <button id="yes">Yes 🖤</button>
-      <button id="no">No</button>
-    </div>
+  // No button mischief
+  noBtn.addEventListener('mouseover', () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  });
 
-    <button class="music-btn" id="musicBtn">▶ Let It Happen</button>
-  </div>
-
-  <audio id="song">
-    <source src="https://audio.jukehost.co.uk/0A1K0zOecbF4ScJpYJH3M1HLH8DJFqfM" type="audio/mpeg">
-  </audio>
-
-  <script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const card = document.getElementById("card");
-    const song = document.getElementById("song");
-    const musicBtn = document.getElementById("musicBtn");
-
-    // No button moves randomly
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - 120);
-      const y = Math.random() * (window.innerHeight - 80);
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-    });
-
-    // Music button
-    musicBtn.addEventListener("click", () => {
-      song.play();
-      musicBtn.innerText = "♫ Playing";
-    });
-
-    // Function to spawn floating hearts
-    function spawnHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * window.innerWidth + "px";
-      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
-    }
-
-    setInterval(spawnHeart, 300);
-
+  // Yes button click
+  yesBtn.addEventListener('click', () => {
+    proposal.innerHTML = `<h1>Hafsa ❤️ Talha</h1>
+                          <p>You said YES! 😍</p>
+                          <p>Will you be my Valentine forever?</p>`;
     // Confetti effect
-    function createConfetti() {
-      for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.style.left = Math.random() * window.innerWidth + "px";
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
-        document.body.appendChild(confetti);
-
-        const fallDuration = 2 + Math.random() * 3;
-        confetti.animate(
-          [
-            { transform: `translateY(0px) rotate(${Math.random()*360}deg)` },
-            { transform: `translateY(${window.innerHeight}px) rotate(${Math.random()*360}deg)` }
-          ],
-          { duration: fallDuration * 1000, easing: "linear" }
-        );
-
-        setTimeout(() => confetti.remove(), fallDuration * 1000);
-      }
-    }
-
-    // Click Yes
-    yesBtn.addEventListener("click", () => {
-      card.innerHTML = `
-        <h1>It was always you 🖤</h1>
-        <p style="opacity:0; transition: opacity 2s;">
-          Guess we both knew this would happen.<br><br>
-          Valentine's Day is ours now --<br>
-          dark love, slow nights, shared chaos.<br><br>
-          I can't wait ❤️
-        </p>
-      `;
-      song.play();
-      createConfetti();
-
-      // Fade in final message
-      const msg = card.querySelector("p");
-      setTimeout(() => { msg.style.opacity = 1; }, 100);
-    });
-  </script>
+    for(let i=0; i<200; i++) createHeart();
+  });
+</script>
 
 </body>
 </html>
